@@ -1,104 +1,81 @@
 import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
+import Page from "~/pages/home";
+import image1 from "./1.png";
+import image2 from "./2.png";
+import image3 from "./3.png";
+import image4 from "./4.png";
+import image5 from "./5.png";
+import image6 from "./6.png";
 
-import Counter from "~/components/starter/counter/counter";
-import Hero from "~/components/starter/hero/hero";
-import Infobox from "~/components/starter/infobox/infobox";
-import Starter from "~/components/starter/next-steps/next-steps";
+export type t = {
+  id: number;
+  uid: string;
+  name: string;
+  description: string;
+  price: number;
+  cover: string;
+};
+
+export const data: Array<t> = [
+  {
+    id: 1,
+    uid: "tatran",
+    name: "Кровать TATRAN",
+    description:
+      "Основание из полированной нержавеющей стали, придает оригинальный парящий эффект.",
+    price: 120_000,
+    cover: image1,
+  },
+  {
+    id: 2,
+    uid: "vilora",
+    name: "Кресло VILORA",
+    description:
+      "Мягкое и уютное, аккуратное и стильное. Упругие подушки сиденья и приятная на ощупь ткань. ",
+    price: 21_000,
+    cover: image2,
+  },
+  {
+    id: 3,
+    uid: "menu",
+    name: "Стол MENU",
+    description:
+      "Европейский дуб - отличается особой прочностью и стабильностью.",
+    price: 34_000,
+    cover: image3,
+  },
+  {
+    id: 4,
+    uid: "askesta",
+    name: "Диван ASKESTA",
+    description:
+      "Благодаря защелкивающемуся механизму диван легко раскладывается в комфортную кровать",
+    price: 68_000,
+    cover: image4,
+  },
+  {
+    id: 5,
+    uid: "lunar",
+    name: "Кресло LUNAR",
+    description:
+      "Прекрасно переносит солнечные лучи, перепады влажности и любые осадки",
+    price: 40_000,
+    cover: image5,
+  },
+  {
+    id: 6,
+    uid: "nastan",
+    name: "Шкаф Nastan",
+    description:
+      "Мебель может быть оснащена разнообразными системами подсветки.",
+    price: 80_000,
+    cover: image6,
+  },
+];
 
 export default component$(() => {
-  return (
-    <>
-      <Hero />
-      <Starter />
-
-      <div role="presentation" class="ellipsis"></div>
-      <div role="presentation" class="ellipsis ellipsis-purple"></div>
-
-      <div class="container container-center container-spacing-xl">
-        <h3>
-          You can <span class="highlight">count</span>
-          <br /> on me
-        </h3>
-        <Counter />
-      </div>
-
-      <div class="container container-flex">
-        <Infobox>
-          <div q:slot="title" class="icon icon-cli">
-            CLI Commands
-          </div>
-          <>
-            <p>
-              <code>npm run dev</code>
-              <br />
-              Starts the development server and watches for changes
-            </p>
-            <p>
-              <code>npm run preview</code>
-              <br />
-              Creates production build and starts a server to preview it
-            </p>
-            <p>
-              <code>npm run build</code>
-              <br />
-              Creates production build
-            </p>
-            <p>
-              <code>npm run qwik add</code>
-              <br />
-              Runs the qwik CLI to add integrations
-            </p>
-          </>
-        </Infobox>
-
-        <div>
-          <Infobox>
-            <div q:slot="title" class="icon icon-apps">
-              Example Apps
-            </div>
-            <p>
-              Have a look at the <a href="/demo/flower">Flower App</a> or the{" "}
-              <a href="/demo/todolist">Todo App</a>.
-            </p>
-          </Infobox>
-
-          <Infobox>
-            <div q:slot="title" class="icon icon-community">
-              Community
-            </div>
-            <ul>
-              <li>
-                <span>Questions or just want to say hi? </span>
-                <a href="https://qwik.builder.io/chat" target="_blank">
-                  Chat on discord!
-                </a>
-              </li>
-              <li>
-                <span>Follow </span>
-                <a href="https://twitter.com/QwikDev" target="_blank">
-                  @QwikDev
-                </a>
-                <span> on Twitter</span>
-              </li>
-              <li>
-                <span>Open issues and contribute on </span>
-                <a href="https://github.com/BuilderIO/qwik" target="_blank">
-                  GitHub
-                </a>
-              </li>
-              <li>
-                <span>Watch </span>
-                <a href="https://qwik.builder.io/media/" target="_blank">
-                  Presentations, Podcasts, Videos, etc.
-                </a>
-              </li>
-            </ul>
-          </Infobox>
-        </div>
-      </div>
-    </>
-  );
+  return <Page />;
 });
 
 export const head: DocumentHead = {

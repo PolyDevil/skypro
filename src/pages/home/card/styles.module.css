@@ -1,0 +1,107 @@
+:where(.rootX) {
+  block-size: 100%;
+  display: grid;
+  grid-template: auto 200px auto minmax(2rem, 4rem) auto / auto;
+  position: relative;
+
+  background: rgb(
+    243 243 243
+  ); /* we can not allow cards with white background on white background */
+
+  & a {
+    color: inherit;
+    text-decoration: none;
+
+    /* to make entire card clickable (expect for the toolbar),
+    we create a pseudoelement inside of an anchor
+      adding `position: absolute` would lift it to the closest non-static ancestor,
+      which would be our grid element
+      and assigning the grid-row would help us to define pseudoelements boundaries
+    */
+    &::before {
+      grid-row: 2/7;
+      content: "";
+      position: absolute;
+      inset: 0;
+    }
+  }
+
+  & > * {
+    grid-column: 1/-1;
+  }
+
+  & img {
+    grid-row: 1/3;
+    object-fit: cover;
+    object-position: center;
+    inline-size: 100%;
+    block-size: 100%;
+  }
+
+  & h3 {
+    grid-row: 3/4;
+    margin: 0;
+    font-weight: 500;
+    padding-block-start: 0.4em;
+    font-size: var(--font-size-m);
+    padding-inline: 1rem;
+  }
+
+  & p {
+    grid-row: 4/5;
+    margin: 0;
+    padding-block-start: 0.35em;
+    font-size: 0.9em;
+    color: #888888;
+    padding-inline: 1rem;
+  }
+
+  & strong {
+    grid-row: 5/6;
+    font-weight: 500;
+    padding-block-start: 0.05em;
+    padding-block-end: 0.4em;
+    font-size: var(--font-size-m);
+    color: #050505;
+    padding-inline: 1rem;
+  }
+
+  & menu {
+    grid-row: 1/2;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    block-size: min-content;
+
+    background: rgba(
+      0,
+      0,
+      0,
+      0.2
+    ); /* since icons are white and they overlap with images, we need to make sure that there is enough contrast, so we add semitransparent background */
+
+    display: flex;
+    justify-content: end;
+  }
+
+  & button {
+    appearance: none;
+    border: none;
+    background: none;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8em;
+    transition: background 0.2s ease-out;
+
+    &:not(:disabled):hover,
+    &:not(:disabled):focus {
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    &:disabled {
+      filter: opacity(0.5);
+    }
+  }
+}

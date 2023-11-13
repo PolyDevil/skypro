@@ -1,0 +1,96 @@
+:where(.rootX) {
+  border-collapse: collapse; /* it has been a while since I used this property */
+
+  /* We need to annotate this table with header, but we dont want to make it visible, therefore we need to visually hide it by placing it outside of the viewport */
+  & caption {
+    position: fixed;
+    inset-inline-start: -100vw;
+  }
+
+  & thead {
+    & tr {
+      & th {
+        padding-block: 1em;
+
+        &:first-of-type {
+          text-align: start;
+        }
+
+        &:last-of-type {
+          text-align: end;
+          inline-size: 2em;
+        }
+      }
+    }
+  }
+
+  & tbody {
+    & tr {
+      border-block-start: 1px solid #cacdd8;
+
+      & td:last-of-type {
+        vertical-align: top;
+
+        & > * {
+          margin-block-start: 2em;
+          display: block;
+        }
+      }
+    }
+
+    & label {
+      /* We need to annotate this field, but we dont want to make it visible, therefore we need to visually hide it by placing it outside of the viewport */
+      & span {
+        position: fixed;
+        inset-inline-start: -100vw;
+      }
+
+      & input {
+        appearance: none;
+        border: none;
+        background: #f7f6f6;
+        border-radius: 6px;
+        overflow: hidden;
+        font-size: var(--font-size-s);
+        padding: 1em;
+        font-weight: 600;
+      }
+    }
+  }
+
+  & tfoot {
+    & menu {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 1em;
+
+      & button,
+      & a {
+        font-weight: 400;
+        border-radius: 999px;
+        font-size: inherit;
+        font-family: inherit;
+        padding-block: 0.5em;
+        padding-inline: 2em;
+      }
+
+      & button {
+        appearance: none;
+        background: none;
+        color: #020202;
+        border: 1px solid black;
+      }
+
+      & a {
+        display: inline-block;
+        text-decoration: none;
+        background: black;
+        border: 1px solid black;
+        color: white;
+        text-align: center;
+      }
+    }
+  }
+}

@@ -1,0 +1,68 @@
+:where(.rootX) {
+  background: #f7f6f6;
+  border-radius: 20px;
+  padding: 2em;
+
+  & fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 2ch;
+  }
+
+  /* In the design they use `Poppins` Font, and I dont see any reason to add second font-family without any solid reason */
+  /* also entire block is inconsistent, so lets do center align */
+  & legend {
+    font-weight: 600;
+    text-align: center;
+    font-size: var(--font-size-m);
+    padding-block-end: 1em;
+  }
+
+  & label {
+    display: grid;
+    gap: 4px;
+    font-size: var(--font-size-s);
+
+    & span {
+      font-weight: 400;
+      font-size: 0.75em;
+    }
+  }
+
+  & input {
+    border: 1px solid #cacdd8;
+    padding: 1em;
+  }
+
+  & textarea {
+    border: 1px solid #cacdd8;
+    padding: 1em;
+  }
+
+  & > div {
+    padding-block: 1.5em 0.75em;
+    text-align: end;
+    color: #888888;
+    font-size: var(--font-size-s);
+
+    & strong {
+      font-size: 1.5em;
+      font-weight: 500;
+      color: black;
+    }
+  }
+
+  & button {
+    appearance: none;
+    border-radius: 999px;
+    border: 1px solid #040404;
+    color: black;
+    font-weight: 400;
+    font-size: var(--font-size-s);
+    inline-size: 100%;
+    padding-block: 0.5em;
+    background: none;
+  }
+}

@@ -1,0 +1,11 @@
+:where(.rootX) {
+  display: grid;
+  grid-template: auto minmax(0, 1fr) / auto;
+  block-size: 100%;
+  overflow: hidden;
+
+  & main {
+    block-size: 100%;
+    overflow: hidden;
+  }
+}

@@ -1,0 +1,72 @@
+:where(.rootX) {
+  /*
+    text color - #fff
+    background-color - #c4c4c4
+    contrast ratio - 1.74;
+    it violates a11y guidelines
+    so I changed background to #393939
+    new contrast ratio is 11.54, which is bigger than 4.5 (requirement for AAA)
+  */
+  background-color: #393939;
+  color: #fff;
+
+  font-size: var(--font-size-s);
+
+  & nav {
+    max-inline-size: 1200px;
+    margin-inline: auto;
+  }
+
+  & ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 4px;
+
+    & li {
+      block-size: 100%;
+
+      &:first-of-type a {
+        font-size: 2em;
+
+        inline-size: min-content; /* fallback for fit-content */
+        inline-size: fit-content;
+      }
+
+      &:not(:first-of-type) a span {
+        /* visually hide textual representation of links */
+        position: fixed;
+        inset-inline-start: -100vw;
+      }
+    }
+  }
+
+  & a {
+    block-size: 100%;
+    display: flex;
+    align-items: center;
+    padding-inline: 1em;
+    padding-block: 0.5em;
+    color: inherit;
+    text-decoration: none;
+    transition: background 0.2s ease-out;
+
+    &:has(svg) {
+      gap: 1ch;
+    }
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.2);
+    }
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  :where(.rootX) {
+    & ul li:not(:first-of-type) a span {
+      position: static;
+    }
+  }
+}

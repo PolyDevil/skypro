@@ -1,0 +1,43 @@
+:where(.rootX) {
+  overflow: auto;
+  block-size: 100%;
+
+  & section {
+    max-inline-size: calc(1200px + 2 * 2rem);
+    margin-inline: auto;
+    padding-block: 2rem;
+    padding-inline: 2rem;
+    display: grid;
+    gap: 1em 0;
+    grid-template: auto 1fr / auto auto;
+    align-items: baseline;
+  }
+
+  /* We need to annotate this section with header, but we dont want to make it visible, therefore we need to visually hide it by placing it outside of the viewport */
+  & h2 {
+    position: fixed;
+    inset-inline-start: -100vw;
+  }
+
+  & ol {
+    grid-column: 1/3;
+    grid-row: 2/3;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    --min: 30ch;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--min)), 1fr));
+    gap: 2em;
+
+    & > li {
+    }
+  }
+}
+
+.searchX {
+  grid-column: 2/3;
+  grid-row: 1/2;
+  justify-self: end;
+}
